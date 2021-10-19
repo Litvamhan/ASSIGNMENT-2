@@ -1,0 +1,52 @@
+#include<stdio.h>
+#include <string.h>
+long int digit(char c);
+long int  roman_to_decimal(char roman[]);
+long int decimal_to_roman(long int num);
+
+int main(){
+  while(1){
+    int select;
+    printf("Select an option : \n1. Addition \n2. Multiplication \n3. Exit\n");
+    scanf("%d",&select);
+    if(select == 1){
+      char roman_num_1[500], roman_num_2[500];
+      printf("Enter two roman numerals : ");
+      scanf("%s %s",roman_num_1, roman_num_2);
+      
+      long int decimal_num_1 = roman_to_decimal(roman_num_1);
+      long int decimal_num_2 = roman_to_decimal(roman_num_2);
+      if(decimal_num_1 == -1 || decimal_num_2 == -1){
+        break;
+      }
+      else{
+        long int sum = decimal_num_1 + decimal_num_2;
+        printf("The sum  of %s and %s  is : ",roman_num_1, roman_num_2);
+        decimal_to_roman(sum);
+        printf("\n");
+      }
+    }
+    else if(select == 2){
+      char roman_num_1[500], roman_num_2[500];
+      printf("Enter two roman numeral: ");
+      scanf("%s %s",roman_num_1, roman_num_2);
+      long int decimal_num_1 = roman_to_decimal(roman_num_1);
+      long int decimal_num_2 = roman_to_decimal(roman_num_2);
+      if(decimal_num_1 == -1 || decimal_num_2 == -1){
+        break;
+      }
+      else{
+        long int product = decimal_num_1 * decimal_num_2;
+        printf("The product of %s and %s is : ",roman_num_1,roman_num_2);
+        decimal_to_roman(product);
+        printf("\n");
+      }
+    }
+    else {
+      printf("Exited.");
+      break;
+    }
+  }
+
+  return 0;
+}
